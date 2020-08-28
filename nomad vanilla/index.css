@@ -1,0 +1,84 @@
+body{
+    background-color:peru;
+}
+
+h1{
+    position: absolute;
+    color:white;
+    font-size:180px;
+    top:0;
+    left:30%;
+}
+
+.form, .greetings{
+    display:none;
+    position: absolute;
+    top:38.7%;
+    left:57.7%;
+}
+
+.showing{
+    display:block;
+    position: absolute;
+    color:white;
+    top:34%;
+    left:31%;
+    font-size:40px;
+}
+
+.bgImage{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-9999;
+    animation:fadeIn 1s linear;
+}
+
+.js-weather{
+    color:white;
+    font-style: bold;
+    position: absolute;
+    top:5%;
+    left:85%;
+    float:right;
+}
+
+.toDoForm {
+    position: absolute;
+    top:38.7%;
+    left:57.7%;
+}
+
+.js-toDoList{
+    color:white;
+    position: absolute;
+    top:42%;
+    left:57.7%;
+    font-size:25px;
+}
+
+.js-form{
+    position: absolute;
+    top:36%;
+    left:31.5%;
+}
+
+input {
+    background: none;
+    appearance: none;
+    border: 0;
+    font-size: 22px;
+    color: white;
+    border-bottom: 2px solid white;
+  }
+  
+  input::placeholder {
+    color: white;
+  }
+  
+  input:focus,
+  input:active {
+    outline: none;
+  }
