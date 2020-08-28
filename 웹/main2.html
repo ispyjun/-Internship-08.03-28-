@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2016039041</title>
+<style type="text/css">
+a{
+        text-decoration: none;
+    }
+    body{
+        width:100%;
+        height:100%;
+        position: relative;
+    }
+    body::after{
+        width:100%;
+        height:100%;
+        
+        content: "";
+        background: url('img.jpg');
+
+		background-repeat : no-repeat;
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+        position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0px;
+    padding: 0px;
+        
+        z-index: -1;
+        opacity: 0.4;
+    }
+    header{
+	height:70px;
+    margin:10px;
+}
+header#title{
+text-align:center;
+}
+div#menu {
+        background-color:lightgray;
+        text-align: center;
+        width: 15%;
+        height: 80%;
+		float:left;
+      }
+	  div#contents {
+        background-color:white;
+        width: 100%;
+        height: 100%;
+		float:left;
+      }
+#footer {
+        text-align: center;
+        width: 100%;
+        height: 50%;
+        clear: both;
+        text-align:center;
+        margin-top:60%;
+        border-top:1px solid red;
+      }
+  ul#forfoot {
+            list-style: none;
+            text-align: center;
+            padding:0px;
+        }
+
+        ul li#forfoot {
+            display: inline;
+            text-transform: uppercase;
+            padding-left : 30px;
+            padding-right: 30px;
+            margin   : 10px;
+            letter-spacing: 10px;
+        }
+
+        ul li a#forfoot {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul li a:hover#forfoot {
+            text-decoration: underline;
+        }
+		 ul#formenu {
+        list-style:none;
+        text-align:center;
+        border-top:1px solid red;
+        border-bottom:1px solid red;
+        padding:30px 0;
+      }
+      ul li#formenu {
+        
+        text-transform:uppercase;
+        padding:0 30px; letter-spacing:10px;
+		margin-top:30px
+      }
+      ul li a#formenu {
+        text-decoration:none;
+        color:black;
+      }
+      ul li a:hover#formenu {
+        text-decoration:underline;
+      }
+	   #left ul {
+          font-family:Arial,Arial, Helvetica, sans-serif;
+          font-size : 15px;
+          color:#FFF;
+          list-style:none;
+          text-indent:15px;
+      }
+      #left ul li{
+          background : black;
+          line-height:25px;
+          border-bottom:1px solid #333;
+      }
+      #left ul li a{
+          text-decoration:none;
+          color:#FFF;
+          display:block;
+      }
+        table, th, td {
+            border: 1px solid black;
+            margin: auto;
+        }
+      table{
+          width:90%;
+          height:90%;
+      }
+	  aside#left
+      {
+          width : 40%;
+          float: left;
+          margin-left: 15%;
+          margin-top: 10%;
+      }
+      aside#right {
+    padding: 0px;
+    margin-right: 70px;
+    width: 200px;
+    float: right;
+}
+      #main {
+        width: 55%;
+        background-color: white;
+        height: 400px;
+        margin:auto;
+        text-align:center;
+      }
+      #login {
+    margin-top: 40px;
+}
+form {
+            border: 1px solid;
+            border-color:black;
+        }
+        nav{
+	margin:10px;
+}
+
+nav ul{
+	list-style:none;
+	text-align:center;
+	border-top:1px solid red;
+	border-bottom:1px solid red;
+	padding:0px;
+}
+nav ul li {
+            display: inline;
+            text-transform: uppercase;
+            padding: 60px;
+            letter-spacing: 10px;
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                color: black;
+            }
+
+                nav ul li a:hover {
+                    text-decoration: underline;
+                }
+</style>
+</head>
+<body>
+    <header id="title">
+        <h1><img src="img.jpg" width="50"height="50" />
+            <B><font size="7" color="white"><a href="main2.html">Main</a></font></h1></B>
+
+
+</header>
+<nav>
+    <ul>
+        <h4><li><a href="index.html">Home</a></li>
+        <li><a href="about.html">개     요</a></li>
+        <li><a href="index.html">자유 게시판</a></li>
+        <li><a href="about.html">사진 게시판</a></li></h4>
+        </ul>
+    </nav>
+
+    <aside id="left">
+        <b><h1><font size="100">주제</font></h1></b>
+        <br><br><br>
+        <h3><font size="6">설명</font></h3>
+        </aside>
+
+<aside id="right">
+    <div id="login">
+        <h4>Log In</h4>
+        <form action="#">
+        아이디
+        <input type="text"><br>
+        패스워드
+        <input type="password"><br>
+        <input type="submit" value="로그인">
+        <input type="reset" value="초기화"><br>
+        <a href="register.html" target="_blank" id="register">회원가입</a>
+        <a href="#" id="forgot">비밀번호분실</a>
+        </form>
+        </div>
+    </aside>
+
+<div id="footer">
+              <ul id="forfoot">
+                 <h4><li id="forfoot"><a id="forfoot" href="http://cbnu.blackboard.com/" target="_blank">
+				  <font size="2" >Ecampus</font></a></li>
+                  <li id="forfoot"><a id="forfoot" href="http://software.cbnu.ac.kr/" target="_blank">
+				  <font size="2" >cbnu software</font></a></li>
+                  <li id="forfoot"><a id="forfoot" href="http://www.w3schools.com/" target="_blank">
+				  <font size="2" >W3 school</font></a></li>
+                  <li id="forfoot"> 
+				  <font size="2" >Tel: 010 - 8222 - 2133 </font></li></h4>
+              </ul> 
+          </div>
+</div>
+</body>
+</html>

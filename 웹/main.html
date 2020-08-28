@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <style>
+    a{
+        text-decoration: none;
+    }
+    header#title{
+text-align:center;
+}
+    header{
+	height:60px;
+	margin:10px;
+}
+    ul#formenu {
+        list-style:none;
+        text-align:center;
+        border-top:1px solid red;
+        border-bottom:1px solid red;
+        padding:30px 0;
+      }
+      ul li#formenu {
+        
+        text-transform:uppercase;
+        padding:0 30px; letter-spacing:10px;
+		margin-top:30px
+      }
+      ul li a#formenu {
+        text-decoration:none;
+        color:black;
+      }
+      ul li a:hover#formenu {
+        text-decoration:underline;
+      }
+      #login {
+    margin-top: 40px;
+}
+form {
+            border: 1px solid;
+            border-color:black;
+        }
+      div#menu {
+        background-color:lightgray;
+        text-align: center;
+        width: 200px;
+        height: 350px;
+		float:left;
+      }
+        aside#right {
+    padding: 0px;
+    margin-right: 70px;
+    width: 15%;
+    float: right;
+}
+    </style>
+</head>
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIfQe56Jo6KxUKGpTG5w_uLJgoDIpTnEU",
+    authDomain: "new-test-f5cef.firebaseapp.com",
+    databaseURL: "https://new-test-f5cef.firebaseio.com",
+    projectId: "new-test-f5cef",
+    storageBucket: "new-test-f5cef.appspot.com",
+    messagingSenderId: "163391581932",
+    appId: "1:163391581932:web:0a3bfa2f81fb410448bfc9",
+    measurementId: "G-Z8YLFJZRQ3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+    <header id="title">
+    <h1><img src="img.jpg" width="50"height="50" />
+    <a href="main.html">Main</a></h1>
+    </header>
+    <aside id="left">
+    <div id="menu">
+        <ul id="formenu">
+        <li id="formenu">
+        <a id="formenu" href="main.html">HOME</a>
+        </li>
+        <li id="formenu">
+        <a id="formenu" href="multimedia.html">개   요</a>
+        </li>
+        <li id="formenu">
+        <a id="formenu" href="board.html">자유게시판</a>
+        </li>
+    </li>
+    <li id="formenu">
+    <a id="formenu" href="board.html">사진게시판</a>
+    </li>
+        <br><br>
+        </ul>
+        </div>
+    </aside>
+    <aside id="right">
+    <div id="login">
+        <h4>Log In</h4>
+        <form action="#">
+        아이디
+        <input type="text"><br>
+        패스워드
+        <input type="password"><br>
+        <input type="submit" value="로그인">
+        <input type="reset" value="초기화"><br>
+        <a href="register.html" target="_blank" id="register">회원가입</a>
+        <a href="#" id="forgot">비밀번호분실</a>
+        </form>
+        </div>
+    </aside>
+    </body>
+</html>
