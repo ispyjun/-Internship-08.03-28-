@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>
+        <style>
+            body,div,
+            dl,dt,dd,
+            ul,ol,li,
+            h1, h2, h3, h4, h5, h6,
+            pre,form,fieldset,
+            input,textarea,p,blockquote,
+            th,td {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            section{
+                width: 100%;
+                height: 1000px;
+            }
+            a{
+                text-decoration: none;
+            }
+
+            /*header*/
+            .gnbWrap{
+                position:relative;width:100%;height:60px;margin:0 auto; padding-top:50px;
+            }
+            .gnbWrap{
+                float:left;
+            }
+            li{
+                list-style: none;
+                float:right;
+                margin-left:10px;
+            }
+            .navWrap{
+                float:top;
+            }
+            .navWrap{
+                float:left;position:relative;
+            }
+           .snbArea{
+                position:relative;width:100%;height:80px;margin-left:50px auto;left:200px;top:10px
+            }
+            .snbArea li { float:left; }
+            .outlink{
+                float:right;
+            }
+            #header .gnbWrap { float:left;position:relative; width:1100px; height:60px; margin:0 auto; padding-top:50px;padding-left:68px;padding-bottom:50px;; }
+            
+
+            .main-container { position: relative; width:100%; margin-top:-1px; overflow: hidden; }
+            .main-container .section { width:100%; height:1000px; overflow:hidden; }
+            .main-container .contents { position:relative; width:1100px; height:1000px; margin:0 auto; } /*width:1214px; min-width:1100px; height:800px; */
+            .main-container .txtBox { position:absolute; }
+            .main-container .txtBox .tit { font-size: 55px; font-weight: bold; line-height: 1.3; letter-spacing: -2px; }
+            .main-container .txtBox .subtit { font-size: 18px; font-style: normal; line-height: 1.56; letter-spacing: -0.5px; }
+            .main-container .imgBox { position:absolute; }
+
+            .section.page1 { background-color:#7f99e2; }
+            .section.page1 .contents { width:1282px; left:82px; margin:0 auto; overflow:hidden; }
+            .section.page1 .txtBox { top:145px; width: 336px; z-index:2; }
+            .section.page1 .txtBox .tit, .section.page1 .txtBox .subtit { color: #ffffff; }
+            .section.page1 .txtBox .subtit { margin-top:30px; }
+
+            .section.page1.txtBox.downlink{ position:relative; width:400px; margin-top:50px; }
+            .section.page1.txtBox.downlink a{float:left;margin:0 13px 13px 0; width:181px; height:57px;}
+            .section.page1.txtBox.downlink a img{display:block;}
+
+            .section.page1 .imgBox { position:absolute; top:0; z-index:1; }
+            .section.page1 .imgBox .imgcnt { position:absolute; height:1000px; top:0; }
+            .section.page1 .imgBox .imgcnt .ntmbimg { position:absolute; top:30px; left:451px; }
+            .section.page1 .imgBox .imgcnt .ntbimg { display:none; position:absolute; top:0; left:459px; }
+            .section.page1 .imgBox .active { z-index:1; }
+
+            .section.page2{position: relative;width:100%;height:1000px;margin:0 auto;background-color: rgb(253, 253, 139);}
+            .section.page2:after { clear:both; display:block; }
+            .section.page2.bx-wrapper{width:1100px;margin:0 auto;}
+            .section.page2.bxslider{z-index:1;}
+            .section.page2.contents{position:relative;width:100%}
+
+            .section.page2.txtBox{right:0;width:400px;}
+            .section.page2.txtBox.tit{margin:30px 0 50px;font-size:40px;font-weight:bold;letter-spacing: -2px;}
+            .section.page2.txtBox.subtit{font-size:20px;font-weight:bold;letter-spacing: -0.9px;}
+            .section.page2.txtBox.disc{font-size:15px;line-height:2;letter-spacing: -0.6px;}
+
+            .section.page2 .slide1.imgBox { top:35px;left:300px; }
+            .section.page2 .slide2.imgBox { top:90px;left:18px; }
+            .section.page2 .slide3.imgBox { top:60px;left:0; }
+            .section.page2 .slide4.imgBox { top:66px;left:-66px; }
+
+            .section.page2 .slide1.txtBox { top:232px; right:50px; }
+            .section.page2 .slide2.txtBox { top:232px; }
+            .section.page2 .slide3.txtBox { top:232px; }
+            .section.page2 .slide4.txtBox { top:232px; }
+            
+
+            .section.page3 { background-color:#f2f4f9; }
+            .section.page3  .contents { width:1100px; }
+            .section.page3  .txtBox { top:240px; left:0; }
+            .section.page3  .txtBox .tit { font-size: 40px; font-weight: bold; letter-spacing: -2px; color: #000000; margin:0 0 40px; }
+            .section.page3  .txtBox .subtit { font-size: 15px; line-height: 2; letter-spacing: -0.5px; }
+            .section.page3  .imgBox { top:0; right:59px; }
+
+            .section.page4 { background-color:#2a4ea7; }
+            .section.page4 .trwrap { padding:500px 0 0 0; width:100%; overflow:hidden; }
+            .section.page4 .trwrap li { float:left; }
+            .section.page4 .trwrap li:nth-child(1) { width:350px; }
+            .section.page4 .trwrap li:nth-child(2) { width:350px; }
+            .section.page4 .trwrap li:nth-child(3) { width:auto; }
+            .section.page4 .trwrap li img { display:block; }
+            .section.page4 .txtBox .tit, .section.page4 .subtit, .section.page4 .disc{color:white}
+
+            .section.page5 { position:relative; width:100%; height: 1000px; margin:0 auto; background-color:#f2f4f9; }
+            .section.page5:after { clear:both; display:block; }
+
+            .section.page6 { background-color:#69738b; }
+            .section.page6 .txtBox .tit{font-size:40px;}
+            .section.page6 .txtBox .tit, .section.page6 .subtit, .section.page6 .disc{color:white}
+            .section.page6 .downlist li { float:left; }
+            .section.page6 .downlist li:nth-child(1) { width:350px; }
+            .section.page6 .downlist li:nth-child(2) { width:350px; }
+            .section.page6 .downlist li:nth-child(3) { width:auto; }
+            .section.page6 .downlist li .tit { width: 238px; height: 21px; padding-bottom:22px; font-size: 16px; font-weight: bold; color: #ffffff; border-bottom:6px solid #fff; }
+            .section.page6 .downlist li a { display:block; margin:20px 0 0 0; width:238px; background:url('https://nateonweb.nate.com/menu/img/main/ic-download.png') 100% 2px no-repeat; background-size: 13px 15px; font-size: 16px; color:#fff; }
+
+            .footer { position:relative; width:1100px; height:86px; line-height:86px; margin:0 auto; }
+            .footer .ftlink { padding:35px 0 0 0; overflow:hidden; }
+            .footer .ftlink a { position:relative; float:left; margin-right:31px; font-size: 12px; line-height:16px; color:#424549; }
+            .footer .ftlink a:after { content:''; position: absolute; top:3px; right:-15px; width:1px; height:10px; background-color:#dbdbdb; }
+            .footer .ftlink a:last-child:after { display:none; }
+            .footer .copyright { position: absolute; top:0; right:0; font-size: 12px; color:#686d75; }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 55px;
+                padding-top: 15px;
+                background-color: #222328;
+                }
+            .bx-controls-direction a { position:absolute; top:50%; display:block; width:50px; height:99px; margin-top:-50px; text-indent:-9999px; background:url('https://nateonweb.nate.com/menu/img/main/btn_slidenav.png') 0 0 no-repeat; background-size:130px auto; z-index:99; }
+            .bx-controls-direction .bx-prev { left:5%; background-position:0 0; }
+            .bx-controls-direction .bx-next { right:5%; background-position:-80px 0; }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <div class="svcWrap">
+                <div class="gnbWrap">
+                    <h1 style="position:absolute">
+                        <a href="https://nateonweb.nate.com/">
+                        <img src="https://nateonweb.nate.com/menu/img/snb/img_nateonlogo.png" width="133" height="26" alr="nate On">
+                    </h1></a>
+                    <script type="text/javascript">
+                    var NateGNB=new classNateGNB("container");</script>
+                    <div id="textGNB" class="nateGnb">
+                        <div id="GnbWrap">
+                            <dl class="gnbmenu">
+                                <dd class="nate">
+                                    <ul>
+                                        <li><a target="nate"></a>메일</a></li>
+                                        <li><a target="nate"></a>뉴스</a></li>
+                                        <li><a target="nate"></a>판</a></li>
+                                        <li><a target="nate"></a>TV</a></li>
+                                        <li><a target="nate"></a>톡톡</a></li>
+                                        <li><a target="nate"></a>만화</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                
+                    <nav class="navWrap">
+                        <div class="snbArea" role="navigation">
+                            <ul>
+                                <li class="on">
+                                    <a href="https://nateonweb.nate.com/">네이트온</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://nateonweb.nate.com/teamroom/">팀룸</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://rsupport.nate.com/rview/r8/main/index.aspx">내PC제어</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://talkon.nate.com/">부가서비스</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="outlink">
+                        <a href="https://service.nateon.nate.com/board/">공지사항</a>
+                        <a href="https://erms.nate.com/faq/exSelfFAQList.jsp?parentNodeId=NODE0000001230&nodeDepth=0">고객센터</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="main-container" id="container">
+            <section class="section page1">
+                <div class ="contents">
+                    <div class="txtBox">
+                        <h3 class="tit">
+                            함께하는 일이 쉬워진다.
+                            <br>
+                            네이트온</h3>
+                        <div class="subtit">
+                            편리함은 기본, 새로운 모습으로 변신한
+                            <br>
+                            네이트온과 만나보세요
+                            <br>
+                        </div>
+                        <div class="downlink">
+                            <a href="https://br.nate.com/index.php?code=F085" target="_blank">
+                            <img src="https://nateonweb.nate.com/menu/img/main/btn-windows.png" alt="window nateon"></a>
+                            <a href="https://br.nate.com/index.php?code=F065">
+                            <img src="https://nateonweb.nate.com/menu/img/main/btn-mac.png"></a>
+                            <a href="https://play.google.com/store/apps/details?id=Uxpp.UC&hl=ko">
+                            <img src="https://nateonweb.nate.com/menu/img/main/btn-google.png"></a>
+                            <a href="https://itunes.apple.com/kr/app/nateon/id362693357?mt=8">
+                            <img src="https://nateonweb.nate.com/menu/img/main/btn-appstore.png"></a>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <div class="imgcnt">
+                            <img src="https://nateonweb.nate.com/menu/img/main/keyvisual-mobile.png" width="832" height="738" alt="네이트온 Mobile 이미지" class="ntmbimg" style="display: block;">
+                            <img src="https://nateonweb.nate.com/menu/img/main/keyvisual-pc.png" width="742" height="826" alt="네이트온 PC 이미지" class="ntbimg" style="display: none;">
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section page2">
+                <div class="bx-wrapper" style="max-width:100%;">
+                <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 1000px;">
+                    <div clas="bxslider"style="position:relative;">
+                        <div class="slide1" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: block;">
+                            <div class="contents">
+                                <div class="txtBox"style="top:300px;left:550px;position:relative;">
+                                    <div class="subtit">빠르게 꺼내 쓰는 업무용 메신저</div>
+                                    <h3 class="tit">필요한 것만 한 눈에<br>쏙- 심플 대화방</h3>
+                                    <div class="disc">메신저의 핵심인 실시간 대화, 대용량 파일 전송,<br>보안이 필요할 때 필요한 한번 메시지와<br>검색 기능이 간결하게 정돈된 심플 대화방</div>
+                                </div>
+                                <div class="imgBox" style="top:100px;position: absolute;">
+                                    <img src="http://nateonweb.nate.com/menu/img/main/img-message.png" width="451" height="731" alt="네이트온 이미지" >
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="slide2" aria-hidden="false" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                            <div class="contents">
+                                <div class="txtBox" style="top:300px;left:550px;position:relative;">
+                                    <div class="subtit">빠르게 꺼내 쓰는 업무용 메신저</div>
+                                    <h3 class="tit">의사소통을 업~<br>시켜주는 기능들</h3>
+                                    <div class="disc">누군가 콕 찍어서 얘기하고 싶을 땐 멘션<br>팀장님 있는 방에선 실수하지 않게 주의대화방으로 설정,<br>나의 도움이 필요할 땐 답장 기능을 써보세요.</div>
+                                </div>
+                                <div class="imgBox" style="top:100px;position: absolute;">
+                                    <img src="http://nateonweb.nate.com/menu/img/main/img-mention.png" width="508" height="642" alt="네이트온 이미지">
+                                </div>	
+                            </div>
+                        </div>
+                        <div class="slide3" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                            <div class="contents">
+                                <div class="txtBox" style="top:300px;left:550px;position:relative;">
+                                <div class="subtit">빠르게 꺼내 쓰는 업무용 메신저</div>
+                                    <h3 class="tit">내 맘대로 만드는<br>친구목록</h3>
+                                    <div class="disc">부서나 프로젝트별로 대화상대 그룹을 만들 수 있으니까<br>내가 정한 대화상대 목록이 일목요연하게<br>정리되어있어 빠른 대화 시작이 가능하죠!</div>
+                                </div>
+                                <div class="imgBox" style="top:100px;position: absolute;">
+                                    <img src="https://nateonweb.nate.com/menu/img/main/img-buddy.png" width="508" height="642" alt="네이트온 이미지">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide4" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                            <div class="contents">
+                                <div class="txtBox" style="top:300px;left:550px;position:relative;">
+                                <div class="subtit">빠르게 꺼내 쓰는 업무용 메신저</div>
+                                    <h3 class="tit">대화를 재미있고<br>활기차게!</h3>
+                                    <div class="disc">대화에 재미를 더해주는 움직이는 이모티콘과<br>액티콘을 사용해보세요. 급한 용건이 있을 땐<br>대화창을 한 번 흔들어보세요.</div>
+                                </div>
+                                <div class="imgBox" style="top:100px;position: absolute;">
+                                    <img src="https://nateonweb.nate.com/menu/img/main/img-emoticon.png" width="508" height="642" alt="네이트온 이미지">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class ="bx-controls bx-has-controls-direction">
+                    <div class="bx-controls-direction">
+                        <a class="bx-prev" href>Prev</a>
+                        <a class="bx-next" href>Next</a>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section page3">
+                <div class="contents">
+                    <div class="txtBox">
+                    <h3 class="tit">업무에 필요한 이메일, 문자,<br>내 PC제어 서비스</h3><br><br><br>
+                    <div class="subtit">네이트온에서는 메신저 기능은 기본, 업무에 필요한 메일과 문자메시지 발송,<br>
+                        내 PC제어 기능을 이용할 수 있습니다.<br>
+                        네이트온 친구라면 쉽게 메일과 문자 메시지를 보낼 수 있고<br>
+                        스마트폰에서 PC화면을 제어할 수 있는 내 PC 제어 기능은 시공간의 제약없이<br>
+                        원하는 작업을 할 수 있게 도와줘요</div>
+                    </div>
+                    <div class="imgBox">
+                        <img src="https://nateonweb.nate.com/menu/img/main/img-bng.png" width="300" height="1000" alt="네이트온 이미지" style="float:right;">
+                    </div>
+                </div>
+            </section>
+            <section class="section page4">
+                <div class="contents">
+                <div class="contents">
+                    <div class="txtBox">
+                    <h3 class="tit" style="font:white">
+                    <br><br><br>프로젝트, 조별 과제에 최적화 된<br>팀플 공간, 팀룸</h3>
+                </div>
+                <ul class="trwrap">
+                    <li>
+                        <img src="https://nateonweb.nate.com/menu/img/main/img-group.png">
+                        <div class="subtit">
+                            <h3>멤버별, 주제별로 관리하는<br>소그룹 : 모임<br></h3>
+                        </div>
+                        <div class="disc">
+                            <br>팀룸 안에서 업무별, 과제별로 모임을 만들고<br>허용된 멤버끼리 협업 활동을 할 수 있어요.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://nateonweb.nate.com/menu/img/main/img-file.png">
+                    
+                    <div class="subtit">
+                        <h3>기간 제한없이 파일 공유하기</h3>
+                    </div>
+                    <div class="disc">
+                        <br>멤버들의 피땀으로 만들어진 산출물들과<br>자료들을 공유해보세요 팀룸당 3GB까지<br>보관할 수 있고 기간 제한없이<br>다운로드할 수 있어요.
+                    </div>
+                </li>
+                    <li>
+                        <img src="https://nateonweb.nate.com/menu/img/main/img-history.png">
+                        <div class="subtit">
+                            <h3>업무 히스토리를 한 눈에</h3>
+                        </div>
+                        <div class="disc">
+                            <br>팀룸에서는 모든 대화가 히스토리가 됩니다.<br>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </section>
+            <section class="section page5">
+                <div class="bx-wrapper" style="max-width:100%;">
+                    <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 1000px;">
+                        <div clas="bxslider"style="width:auto;position:relative;">
+                            <div class="slide1" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                                <div class="contents">
+                                    <div class="txtBox" style="top:250px">
+                                        <h2 class="tit">평범한 직장생활에<br>즐거움을 더해주는 네이트온</h2>
+                                        <img src="https://nateonweb.nate.com/menu/img/main/ic-act.png"width="70" height="70" style="padding: 50px 0 0 0;">
+                                        <h3 class="subtit"><br>풍성한 이모티콘:)</h3>
+                                        <div class="disc" >
+                                            <br>메신저의 핵심인 실시간 대화, 대용량 파일 전송,<br>보안이 필요할 때 필요한 한번 메시지와<br>검색 기능이 간결하게 정돈된 심플 대화방</div>
+                                    </div>
+                                    <div class="imgBox" style="top:200px;left:700px">
+                                        <img src="https://nateonweb.nate.com/menu/img/main/eoi%20company_22.gif"width="224" height="224" alt="네이트온 이미지"style=" position:absolute;top:273px;">
+                                        <img src="https://nateonweb.nate.com/menu/img/main/img-acticon-02.png"width="546" height="516" alt="네이트온 이미지">
+                                    </div>	
+                                </div>
+                            </div>
+                            <div class="slide2" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                                <div class="contents">
+                                    <div class="txtBox" style="top:250px">
+                                        <h2 class="tit">평범한 직장생활에<br>즐거움을 더해주는 네이트온</h2>
+                                        <img src="https://nateonweb.nate.com/menu/img/main/ic-nate.png"width="70" height="70" style="padding: 50px 0 0 0;">
+                                        <h3 class="subtit"><br>네이트온으로 만나는 네이트</h3>
+                                        <div class="disc" >
+                                            <br>바쁜 회사 생활로 세상 돌아가는 소식 놓치지 않도록-<br>네이트 뉴스와 네이트 판 톡커들의 세상 사는 이야기들이<br>네이트온 속으로 쏙-</div>
+                                    </div>
+                                    <div class="imgBox" style="top:150px;left:700px">
+                                        <img src="https://nateonweb.nate.com/menu/img/main/img-nate.png"width="500" height="700" alt="네이트온 이미지">
+                                        
+                                    </div>		
+                                </div>
+                            </div>
+                            <div class="slide3" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: block;">
+                                <div class="contents">
+                                    <div class="txtBox" style="top:250px">
+                                        <h2 class="tit">평범한 직장생활에<br>즐거움을 더해주는 네이트온</h2>
+                                        <img src="https://nateonweb.nate.com/menu/img/main/ic-shopping.png"width="70" height="70" style="padding: 50px 0 0 0;">
+                                        <h3 class="subtit"><br>특가로 뭉친 쇼핑 탭</h3>
+                                        <div class="disc" >
+                                            <br>특가 쇼핑 정보와 트렌디한 상품 정보를 소개해드리는<br>쇼핑탭, 클릭 하나로 플렉스해도 손해 1도 없는 알찬 쇼핑 정보를<br>모아보기 할 수 있어요.</div>
+                                    </div>
+                                    <div class="imgBox" style="top:200px;left:750px">
+                                        <img src="https://nateonweb.nate.com/menu/img/main/img-shopping.png"width="400" height="700" alt="네이트온 이미지">
+                                        
+                                    </div>	
+                                </div>
+                            </div>
+                            
+                            <div class="slide4" aria-hidden="true" style="float: none; list-style: none; position: absolute; width: 100%; z-index: 0; display: none;">
+                                <div class="contents">
+                                    <div class="txtBox">
+                                    <div class="subtit">빠르게 꺼내 쓰는 업무용 메신저</div>
+                                        <h3 class="tit">대화를 재미있고<br>활기차게!</h3>
+                                        <div class="disc">대화에 재미를 더해주는 움직이는 이모티콘과<br>액티콘을 사용해보세요. 급한 용건이 있을 땐<br>대화창을 한 번 흔들어보세요.</div>
+                                    </div>
+                                    <div class="imgBox">
+                                        <img src="https://nateonweb.nate.com/menu/img/main/img-emoticon.png" width="508" height="642" alt="네이트온 이미지">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class ="bx-controls bx-has-controls-direction">
+                        <div class="bx-controls-direction">
+                            <a class="bx-prev" href>Prev</a>
+                            <a class="bx-next" href>Next</a>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="section page6">
+                <div class="contents">
+                    <div class="txtBox" style="top:100px">
+                        <h5 class="tit">내가 있는 어떤 곳이라도, 네이트온과 함께</h5>
+                        <div class="subtit"style="top:100px; position:relative"> 외근 갈 때, 재택 할 때... 회사에서 보던 문서 어떻게 확인하지?<br>
+                        네이트온은 다양한 디바이스 동기화를 지원하여 이동 중에도 팀원들과 계속해서 대화를 이어갈 수 있고<br>
+                    최근에 주고 받은 파일도 언제든 확인할 수 있어요.</div>
+                    </div>
+                    <ul class="downlist"style="top:600px; position:absolute">
+                        <li>
+                            <div class="subtit">
+                                PC 다운로드<br>
+                                ─────────────────<br>
+                            </div>
+                            <a class="disc"href="https://br.nate.com/index.php?code=F085" target="_blank">Windows</a><br>
+                            <a class="disc"href="https://br.nate.com/index.php?code=F065"target="_blank">Mac OS</a>
+                        </li>
+                        <li>
+                            <div class="subtit">
+                                APP 다운로드<br>
+                                ─────────────────<br>
+                            </div>
+                            <a class="disc"href="https://play.google.com/store/apps/details?id=Uxpp.UC&hl=ko"target="_blank">Android</a><br>
+                            <a class="disc"href="https://apps.apple.com/kr/app/nateon/id362693357"target="_blank">IOS</a>
+                        </li>
+                        <li>
+                            <div class="subtit">
+                                웹 메신저<br>
+                                ─────────────────<br>
+                            </div >
+                            <a class="disc"href="#"onclick="popupWebMessinger();return false;"target="blank">바로 실행하기</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </section>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="ftlink">
+                <a href="https://www.nate.com/policy/legal.html">서비스약관  </a>
+                <a href="https://www.nate.com/policy/privacy.html">개인정보처리방침 </a>
+                <a href="https://www.nate.com/policy/youthpolicy.html">청소년보호정책  </a>
+                <a href="https://adguide.nate.com/">광고문의  </a>
+                <a href="https://erms.nate.com/faq/exSelfFAQList.jsp?parentNodeId=NODE0000001230&nodeDepth=0">고객센터</a>
+            </div>
+            <div class="copyright">
+                <a>Copyright © SK Communications All right reserved</a>
+                </div>
+            </div>
+            </div>
+        </footer>
+        <script>
+            $(function(){
+                $('.page2>.bxslider').bxSlider({
+                    auto:true,
+                    autoControls:false,
+                    stopAutoOnClick:false,
+                    pager:false,
+                    mode:'fade'});
+                $('.page5>.bxslider').bxSlider({
+                    auto:true,
+                    autoControls:false,
+                    stopAutoOnClick:false,
+                    pager:false,
+                    mode:'fade'});
+
+                var _mainImg=$('.imgBox>.imgcnt').children('img'),
+                    n=_mainImg.length,
+                    i=1,
+                    t;
+                var _sec=4;
+
+                (function loop(){
+                    t=setTimeout(function(){
+                        var _order=i++%n;
+                        _mainImg.not(':eq('+_order+')').fadeOut(1500);
+                        _mainImg.eq(_order).fadeIn(1500);
+                        loop();
+                    },_sec*1000);
+                }());
+            });
+        </script>
+    </body>
+</html>
